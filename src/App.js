@@ -10,8 +10,8 @@ class App extends Component {
   state = {
     username: 'John',
     score: 0,
-    characters: characters.map((character, i) => {
-      return {...character, id: i, hasClicked: false}
+    characters: characters.map((character) => {
+      return {...character, hasClicked: false}
     })
   }
   shuffleCards = () => {
@@ -31,14 +31,17 @@ class App extends Component {
     this.setState({ characters: charactersCopy })
   }
   turn = (id) => {
-    this.setState({characters: this.state.characters.map((character, i) => {
-      if(i === id) {
+    this.setState({
+      score: this.state.score + 1, 
+      characters: this.state.characters.map(character => {
+      if(character._id === id) {
         character.hasClicked = true
         return character
       }
         return character
-      }), score: this.state.score + 1 })
-  }
+      })
+    })
+  }  
   resetGame = () => {
     this.setState({ score: 0, characters })
   }

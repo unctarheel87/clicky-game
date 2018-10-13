@@ -34,11 +34,11 @@ class ClickCard extends Component {
               this.setState({ elevationVal: 2 })
              }}
              onClick={() => {
-                if(this.state.hasClicked) {
+                if(this.props.character.hasClicked) {
                   return this.props.resetGame()
                 } 
                 this.setState({ hasClicked: true })
-                this.props.turn(this.props.id) 
+                this.props.turn(this.props.character._id) 
                 this.props.shuffleCards()
              }}
         >
