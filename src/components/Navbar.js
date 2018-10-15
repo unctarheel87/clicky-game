@@ -23,6 +23,9 @@ const ButtonAppBar = (props) => {
           <Typography variant="h5" color="secondary" className={classes.grow}>
             The Simpsons Shuffle Game!
           </Typography>
+          <Typography variant="h6" color="secondary" className={classes.grow}>
+            {this.state.message}
+          </Typography>
           <Typography variant="h5" color="secondary" className={classes.grow}>
             Score: {props.state.score} | Top Score: {props.state.topScore}
           </Typography>
