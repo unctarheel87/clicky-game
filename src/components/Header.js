@@ -23,10 +23,9 @@ const styles = {
   }
 }
 
-window.onload = typeWriter()
-
 const Header = (props) => {
   const { classes } = props;
+  window.onload = typeWriter()
   return (
     <div className={classes.root}>
       <Typography className={classes.text} variant="h5">
