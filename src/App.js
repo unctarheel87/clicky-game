@@ -14,6 +14,7 @@ const gameChars = () => characters.filter((c, i) => i < 12).map((character) => {
 class App extends Component {
   state = {
     message: 'Click an image to play',
+    error: '',
     topScore: 0,
     score: 0,
     characters: gameChars()
@@ -47,6 +48,7 @@ class App extends Component {
   }  
   resetGame = () => {
     this.setState({ 
+      error: 'shake',
       message: 'Incorrect...',
       topScore: this.state.score > this.state.topScore ? this.state.score : this.state.topScore, 
       score: 0, 
