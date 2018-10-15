@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
+import Fade from '@material-ui/core/Fade';
 
 const styles = theme => ({
   paper: {
@@ -26,29 +27,31 @@ class ClickCard extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <Paper className={classes.paper} 
-             elevation = { this.state.elevationVal }
-             onMouseOver={() => {
-              this.setState({ elevationVal: 20 })
-             }}
-             onMouseOut={() => {
-              this.setState({ elevationVal: 2 })
-             }}
-             onClick={() => {
-                if(this.props.character.hasClicked) {
-                  this.props.resetGame()
-                  return
-                } 
-                this.setState({ hasClicked: true })
-                this.props.turn(this.props.character._id) 
-                this.props.shuffleCards()
-             }}
-        >
-        <img className={classes.imgCard} 
-            alt={this.props.character.image} 
-            src={`/images/${this.props.character.image}`} 
-      />
-      </Paper>
+      <Fade in={true} timeout={800}>
+        <Paper className={classes.paper} 
+              elevation = { this.state.elevationVal }
+              onMouseOver={() => {
+                this.setState({ elevationVal: 20 })
+              }}
+              onMouseOut={() => {
+                this.setState({ elevationVal: 2 })
+              }}
+              onClick={() => {
+                  if(this.props.character.hasClicked) {
+                    this.props.resetGame()
+                    return
+                  } 
+                  this.setState({ hasClicked: true })
+                  this.props.turn(this.props.character._id) 
+                  this.props.shuffleCards()
+              }}
+          >
+          <img className={classes.imgCard} 
+              alt={this.props.character.image} 
+              src={`/images/${this.props.character.image}`} 
+        />
+        </Paper>
+      </Fade>
     );
   }
 }
