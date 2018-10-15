@@ -35,6 +35,7 @@ class App extends Component {
   }
   turn = (id) => {
     this.setState({
+      error: '',
       message: 'Correct!',
       score: this.state.score + 1, 
       characters: this.state.characters.map(character => {
