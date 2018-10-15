@@ -15,7 +15,7 @@ const styles = {
 const ClickCards = (props) => {
   const { classes } = props;
   return (
-    <div className='shake'>
+    <div className={classes.root}>
       <Grid container 
             spacing={24}
             direction="row"
