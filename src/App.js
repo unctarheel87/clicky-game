@@ -34,6 +34,7 @@ class App extends Component {
   }
   turn = (id) => {
     this.setState({
+      message: 'Correct!',
       score: this.state.score + 1, 
       characters: this.state.characters.map(character => {
       if(character._id === id) {
@@ -46,6 +47,7 @@ class App extends Component {
   }  
   resetGame = () => {
     this.setState({ 
+      message: 'Incorrect...',
       topScore: this.state.score > this.state.topScore ? this.state.score : this.state.topScore, 
       score: 0, 
       characters: gameChars() 
