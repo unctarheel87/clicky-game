@@ -8,8 +8,8 @@ const styles = theme => ({
     padding: theme.spacing.unit * 2,
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    width: '110px',
-    height: '100px',
+    width: '120px',
+    height: '105px',
     cursor: 'pointer',
   },
   imgCard: {
@@ -35,7 +35,8 @@ class ClickCard extends Component {
              }}
              onClick={() => {
                 if(this.props.character.hasClicked) {
-                  return this.props.resetGame()
+                  this.props.resetGame()
+                  return
                 } 
                 this.setState({ hasClicked: true })
                 this.props.turn(this.props.character._id) 

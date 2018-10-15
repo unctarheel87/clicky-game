@@ -6,8 +6,8 @@ import Grid from '@material-ui/core/Grid';
 
 const styles = {
   root: {
-    width: '960px',
-    margin: '40px auto'
+    width: '680px',
+    margin: '5% auto'
   }
 }
 
@@ -22,8 +22,9 @@ const ClickCards = (props) => {
             alignItems="center"
       >
         {props.characters.map(character => (
-          <Grid item xs={2}>
-            <ClickCard character={character} 
+          <Grid item xs={3}>
+            <ClickCard key={character._id}
+                       character={character} 
                        shuffleCards={props.shuffleCards}
                        resetGame={props.resetGame}
                        turn={props.turn}

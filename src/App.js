@@ -2,28 +2,29 @@ import React, { Component } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import ClickCards from './components/ClickCards';
+import Header from './components/Header'
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import theme from './theme';
 import characters from './simpsons';
 
+const gameChars = () => characters.filter((c, i) => i < 12).map((character) => {
+  return {...character, hasClicked: false}
+})
+
 class App extends Component {
   state = {
-    username: 'John',
+    topScore: 0,
     score: 0,
-    characters: characters.map((character) => {
-      return {...character, hasClicked: false}
-    })
+    characters: gameChars()
   }
   shuffleCards = () => {
     const charactersCopy = this.state.characters.slice();
     let currentIndex = charactersCopy.length;
     let randIndex, tempValue
     while (0 !== currentIndex) {
-      // Pick a remaining element...
       randIndex = Math.floor(Math.random() * currentIndex);
       currentIndex -= 1;
-  
-      // And swap it with the current element.
+      //swap
       tempValue = charactersCopy[currentIndex];
       charactersCopy[currentIndex] = charactersCopy[randIndex];
       charactersCopy[randIndex] = tempValue;
@@ -43,13 +44,18 @@ class App extends Component {
     })
   }  
   resetGame = () => {
-    this.setState({ score: 0, characters })
+    this.setState({ 
+      topScore: this.state.score > this.state.topScore ? this.state.score : this.state.topScore, 
+      score: 0, 
+      characters: gameChars() 
+    })
   }
   render() {
     return (
       <div className="App">
         <MuiThemeProvider theme={theme}>
           <Navbar state={this.state} />
+          <Header />
           <ClickCards characters={this.state.characters} 
                       shuffleCards={this.shuffleCards} 
                       resetGame={this.resetGame}
