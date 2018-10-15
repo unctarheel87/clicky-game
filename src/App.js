@@ -13,6 +13,7 @@ const gameChars = () => characters.filter((c, i) => i < 12).map((character) => {
 
 class App extends Component {
   state = {
+    message: '',
     topScore: 0,
     score: 0,
     characters: gameChars()
