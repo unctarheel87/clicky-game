@@ -5,12 +5,13 @@ import Paper from '@material-ui/core/Paper';
 
 const styles = theme => ({
   paper: {
-    padding: theme.spacing.unit * 2,
+    padding: theme.spacing.unit * 1,
     textAlign: 'center',
     color: theme.palette.text.secondary,
     width: '120px',
     height: '105px',
     cursor: 'pointer',
+    border: '4px solid lightgray'
   },
   imgCard: {
     width: '100%',

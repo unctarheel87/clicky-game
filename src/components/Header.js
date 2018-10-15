@@ -2,32 +2,35 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+import typeWriter from '../typewriter';
 
 const styles = {
   root: {
     background: 'url("/images/chalkboard.jpg")',
     opacity: '0.9',
     width: '630px',
-    height: '280px',
+    height: '260px',
     margin: '0 auto',
-    padding: '13px',
+    paddingTop: '20px',
     display: 'flex',
-    alignItems:'flex-end',
-    justifyContent: 'center'
+    alignItems:'center',
+    justifyContent: 'center',
+    borderRadius: '4px'
   },
   text: {
     color: '#fff',
-    width: '410px',
+    width: '440px',
   }
 }
+
+window.onload = typeWriter()
 
 const Header = (props) => {
   const { classes } = props;
   return (
     <div className={classes.root}>
       <Typography className={classes.text} variant="h5">
-        Click any tile to play!<hr/>
-        Click on an image to earn points, but don't click on any more than once!
+        <p id='headerText'></p>
       </Typography>
     </div>
   )
