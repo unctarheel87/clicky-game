@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-import Grow from '@material-ui/core/Grow';
+import Fade from '@material-ui/core/Fade';
 
 const styles = theme => ({
   paper: {
@@ -27,7 +27,7 @@ class ClickCard extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <Grow in={true} timeout={800}>
+      <Fade in={true} timeout={800}>
         <Paper className={classes.paper} 
               elevation = { this.state.elevationVal }
               onMouseOver={() => {
@@ -51,7 +51,7 @@ class ClickCard extends Component {
               src={`/images/${this.props.character.image}`} 
         />
         </Paper>
-      </Grow>
+      </Fade>
     );
   }
 }
