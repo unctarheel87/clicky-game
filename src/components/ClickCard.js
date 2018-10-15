@@ -27,7 +27,7 @@ class ClickCard extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <Slide direction="up" in={true} mountOnEnter unmountOnExit>
+      <Slide direction="up" in={true} timeout={800} mountOnEnter unmountOnExit>
         <Paper className={classes.paper} 
               elevation = { this.state.elevationVal }
               onMouseOver={() => {
