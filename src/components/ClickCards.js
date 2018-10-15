@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import ClickCard from './ClickCard';
 import Grid from '@material-ui/core/Grid';
+import './ClickCards.css'
 
 const styles = {
   root: {
