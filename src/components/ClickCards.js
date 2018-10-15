@@ -21,7 +21,7 @@ const ClickCards = (props) => {
             direction="row"
             justify="space-around"
             alignItems="center"
-            className="shake"
+            className={props.error}
       >
         {props.characters.map(character => (
           <Grid item xs={3}>
