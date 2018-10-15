@@ -61,7 +61,8 @@ class App extends Component {
         <MuiThemeProvider theme={theme}>
           <Navbar state={this.state} />
           <Header />
-          <ClickCards characters={this.state.characters} 
+          <ClickCards characters={this.state.characters}
+                      error={this.state.error}
                       shuffleCards={this.shuffleCards} 
                       resetGame={this.resetGame}
                       turn={this.turn}
