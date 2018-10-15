@@ -27,7 +27,7 @@ class ClickCard extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <Fade in={true} timeout={800}>
+      <Slide direction="up" in={true} mountOnEnter unmountOnExit>
         <Paper className={classes.paper} 
               elevation = { this.state.elevationVal }
               onMouseOver={() => {
@@ -51,7 +51,7 @@ class ClickCard extends Component {
               src={`/images/${this.props.character.image}`} 
         />
         </Paper>
-      </Fade>
+      </Slide>
     );
   }
 }
