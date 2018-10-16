@@ -11,7 +11,7 @@ const styles = {
     width: '630px',
     height: '250px',
     margin: '0 auto',
-    paddingTop: '36px',
+    paddingTop: '40px',
     display: 'flex',
     alignItems:'center',
     justifyContent: 'center',
