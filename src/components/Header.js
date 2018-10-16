@@ -9,7 +9,7 @@ const styles = {
     background: 'url("/images/chalkboard.jpg")',
     opacity: '0.9',
     width: '630px',
-    height: '260px',
+    height: '280px',
     margin: '0 auto',
     paddingTop: '20px',
     display: 'flex',
