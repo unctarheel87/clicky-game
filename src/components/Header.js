@@ -19,7 +19,7 @@ const styles = {
   },
   text: {
     color: '#fff',
-    width: '420px',
+    width: '400px',
     textTransform: 'uppercase'
   }
 }
