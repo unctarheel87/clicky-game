@@ -38,10 +38,10 @@ class ClickCards extends Component {
         requestAnimationFrame( () => {
         domNode.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
         domNode.style.transition = 'transform 0s';  
-        requestAnimationFrame( () => {
-          domNode.style.transform  = '';
-          domNode.style.transition = 'transform 500ms';
-        });
+          requestAnimationFrame( () => {
+            domNode.style.transform  = '';
+            domNode.style.transition = 'transform 500ms';
+          });
       });
     }
   }
@@ -60,7 +60,6 @@ class ClickCards extends Component {
             <ClickCard ref={(ref) => this.myRef[character._id] = ref}
                        key={character._id}
                        character={character} 
-                       shuffleCards={this.props.shuffleCards}
                        resetGame={this.props.resetGame}
                        turn={this.props.turn}
             />

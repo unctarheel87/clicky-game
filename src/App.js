@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import ClickCards from './components/ClickCards';
 import Header from './components/Header'
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import Typography from '@material-ui/core/Typography';
 import theme from './theme';
 import characters from './simpsons';
 
@@ -13,6 +14,8 @@ const gameChars = () => characters.filter((c, i) => i < 12).map((character) => {
 
 class App extends Component {
   state = {
+    headerText: "Click on an image to earn points, but don't click on any more than once!",
+    winText: "",
     message: 'Click an image to play',
     error: '',
     topScore: 0,
@@ -34,40 +37,75 @@ class App extends Component {
     this.setState({ characters: charactersCopy })
   }
   turn = (id) => {
-    this.setState({
-      error: '',
-      message: 'Correct!',
-      score: this.state.score + 1, 
-      characters: this.state.characters.map(character => {
-      if(character._id === id) {
-        character.hasClicked = true
-        return character
-      }
-        return character
+    //win logic
+    if(this.state.score === 11) {
+      this.setState({
+        winText: "YOU WIN!!!",
+        headerText: "",
+        message: "Correct!",
+        topScore: 0,
+        score: 0,
+        winState: true
       })
-    })
+      const audio = new Audio()
+      audio.src = "/simpsons.mp3"
+      audio.currentTime = 10;
+      audio.play()
+      setTimeout(() => {
+        audio.pause();
+        audio.currentTime = 10;
+        this.setState({
+          characters: gameChars(),
+          newGame: true,
+          winState: false,
+          winText: "",
+          message: 'Click an image to play'
+        })}, 15000)
+      
+    } else {
+      this.setState({
+        error: '',
+        message: 'Correct!',
+        newGame: false,
+        score: this.state.score + 1, 
+        characters: this.state.characters.map(character => {
+        if(character._id === id) {
+          character.hasClicked = true
+          return character
+        }
+          return character
+        })
+      })
+      this.shuffleCards();
+    }
   }  
   resetGame = () => {
     this.setState({ 
       error: 'shake',
       message: 'Incorrect...',
       topScore: this.state.score > this.state.topScore ? this.state.score : this.state.topScore, 
-      score: 0, 
-      characters: gameChars() 
+      score: 0
     })
+    setTimeout(() => {
+      this.setState({
+        characters: gameChars()
+      })}, 1000)
   }
+
   render() {
     return (
       <div className="App">
         <MuiThemeProvider theme={theme}>
           <Navbar state={this.state} />
-          <Header />
+          <Header state={this.state} />
+          {!this.state.winState ? 
           <ClickCards characters={this.state.characters}
                       error={this.state.error}
                       shuffleCards={this.shuffleCards} 
                       resetGame={this.resetGame}
                       turn={this.turn}
-          />
+          /> :
+          <Typography variant="h4"><p className="winGame">Enjoy the Music...</p></Typography>}
         </MuiThemeProvider>
       </div>
     );

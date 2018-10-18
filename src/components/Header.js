@@ -27,14 +27,22 @@ const styles = {
 class Header extends Component {
   myRef = React.createRef()
   componentDidMount() {
-    typeWriter(this.myRef.current)
+    typeWriter(this.myRef.current, this.props.state.headerText)
+  }
+  componentDidUpdate() {
+    this.renderText()
+  }
+  renderText = () => {
+    if(this.props.state.newGame) {
+      typeWriter(this.myRef.current, this.props.state.headerText)
+    }
   }
   render() {
     const { classes } = this.props;
     return (
       <div className={classes.root}>
-        <Typography className={classes.text} variant="h5">
-          <p ref={this.myRef} id='headerText'></p>
+        <Typography className={classes.text} variant={this.props.state.winText ? "h2" : "h5"}>
+          <p ref={this.myRef} id='headerText'>{this.props.state.winText}</p>
         </Typography>
       </div>
     )

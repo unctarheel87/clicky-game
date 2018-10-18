@@ -43,7 +43,6 @@ class ClickCard extends Component {
                   } 
                   this.setState({ hasClicked: true })
                   this.props.turn(this.props.character._id) 
-                  this.props.shuffleCards()
               }}
           >
           <img className={classes.imgCard} 
