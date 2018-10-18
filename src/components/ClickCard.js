@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import Fade from '@material-ui/core/Fade';
 
 const styles = theme => ({
   paper: {
@@ -27,7 +27,7 @@ class ClickCard extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <Fade in={true} timeout={800}>
+      <Grid item xs={3} >
         <Paper className={classes.paper} 
               elevation = { this.state.elevationVal }
               onMouseOver={() => {
@@ -51,7 +51,7 @@ class ClickCard extends Component {
               src={`/images/${this.props.character.image}`} 
         />
         </Paper>
-      </Fade>
+      </Grid>
     );
   }
 }

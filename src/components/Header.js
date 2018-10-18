@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
@@ -24,16 +24,21 @@ const styles = {
   }
 }
 
-const Header = (props) => {
-  const { classes } = props;
-  window.onload = typeWriter()
-  return (
-    <div className={classes.root}>
-      <Typography className={classes.text} variant="h5">
-        <p id='headerText'></p>
-      </Typography>
-    </div>
-  )
+class Header extends Component {
+  myRef = React.createRef()
+  componentDidMount() {
+    typeWriter(this.myRef.current)
+  }
+  render() {
+    const { classes } = this.props;
+    return (
+      <div className={classes.root}>
+        <Typography className={classes.text} variant="h5">
+          <p ref={this.myRef} id='headerText'></p>
+        </Typography>
+      </div>
+    )
+  }
 }
 
 Header.propTypes = {
