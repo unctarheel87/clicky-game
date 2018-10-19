@@ -62,6 +62,7 @@ class ClickCards extends Component {
                        character={character} 
                        resetGame={this.props.resetGame}
                        turn={this.props.turn}
+                       disableClick={this.props.disableClick}
             />
           ))}
         </Grid>

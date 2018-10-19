@@ -1,6 +1,5 @@
-export default((element) => {
-  let i = 0
-  const txt = "Click on an image to earn points, but don't click on any more than once!"
+export default((element, txt) => {
+  let i = 0;
   const speed = 60;
   const typeWriter = () => {
     if (i < txt.length) {

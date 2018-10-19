@@ -37,6 +37,9 @@ class ClickCard extends Component {
                 this.setState({ elevationVal: 2 })
               }}
               onClick={() => {
+                  if(this.props.disableClick) {
+                    return false
+                  }
                   if(this.props.character.hasClicked) {
                     this.props.resetGame()
                     return

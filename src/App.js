@@ -17,6 +17,7 @@ class App extends Component {
     headerText: "Click on an image to earn points, but don't click on any more than once!",
     winText: "",
     message: 'Click an image to play',
+    disableClick: false,
     error: '',
     topScore: 0,
     score: 0,
@@ -84,11 +85,13 @@ class App extends Component {
       error: 'shake',
       message: 'Incorrect...',
       topScore: this.state.score > this.state.topScore ? this.state.score : this.state.topScore, 
-      score: 0
+      score: 0,
+      disableClick: true
     })
     setTimeout(() => {
       this.setState({
-        characters: gameChars()
+        characters: gameChars(),
+        disableClick: false
       })}, 1000)
   }
 
@@ -101,6 +104,7 @@ class App extends Component {
           {!this.state.winState ? 
           <ClickCards characters={this.state.characters}
                       error={this.state.error}
+                      disableClick={this.state.disableClick}
                       shuffleCards={this.shuffleCards} 
                       resetGame={this.resetGame}
                       turn={this.turn}
