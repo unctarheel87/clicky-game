@@ -20,7 +20,7 @@ class App extends Component {
     disableClick: false,
     error: '',
     topScore: 0,
-    score: 0,
+    score: 9,
     characters: gameChars()
   }
   shuffleCards = () => {
@@ -45,6 +45,7 @@ class App extends Component {
         headerText: "",
         message: "Correct!",
         topScore: 0,
+        newGame: false,
         score: 0,
         winState: true
       })
@@ -57,6 +58,7 @@ class App extends Component {
         audio.currentTime = 10;
         this.setState({
           characters: gameChars(),
+          headerText: "Click on an image to earn points, but don't click on any more than once!",
           newGame: true,
           winState: false,
           winText: "",
