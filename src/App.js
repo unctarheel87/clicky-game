@@ -20,7 +20,7 @@ class App extends Component {
     disableClick: false,
     error: '',
     topScore: 0,
-    score: 9,
+    score: 0,
     characters: gameChars()
   }
   shuffleCards = () => {
