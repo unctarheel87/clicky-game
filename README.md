@@ -9,4 +9,4 @@ A 'memory' game where you must click on all 12 character images to win - You can
 * Customer animations (the shuffle!) are implemented using `Lifecycle Methods` and `requestAnimationFrame`
 
  ## Hints
- * win the game and enjoy the theme song!
+ * Win the game and enjoy the theme song!
