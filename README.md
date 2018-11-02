@@ -8,7 +8,7 @@ A 'memory' game where you must click on all 12 character images to win - You can
 ## Building Blocks
 * UI is built with `React.js`
 * `MaterialUI` for theming and styles, utilizing a `CSS in JSS` pattern
-* Custome animations (i.e. the shuffle!) are implemented using `Lifecycle Methods` and `requestAnimationFrame`
+* Custom animations (i.e. the shuffle!) are implemented using `Lifecycle Methods` and `requestAnimationFrame`
 
  ## Hints
  * Win the game and enjoy the theme song!
